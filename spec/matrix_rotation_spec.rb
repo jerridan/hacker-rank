@@ -37,9 +37,9 @@ RSpec.describe MatrixRotation do
     end
 
     it "handles a matrix with an odd number of columns" do
-      matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+      matrix = [[1, 2, 3], [4, 5, 6]]
 
-      expect(MatrixRotation.flatten(matrix)).to eq([[1, 2, 3, 6, 9, 12, 11, 10, 7, 4], [5, 8]])
+      expect(MatrixRotation.flatten(matrix)).to eq([[1, 2, 3, 6, 5, 4]])
     end
   end
 
