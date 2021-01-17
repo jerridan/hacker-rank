@@ -38,15 +38,15 @@ RSpec.describe MatrixRotation do
     end
 
     it "handles a matrix with an odd number of rows" do
-      matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+      matrix = [[1, 2, 3, 4], [7, 8, 9, 10], [13, 14, 15, 16], [19, 20, 21, 22], [25, 26, 27, 28]]
 
-      expect(MatrixRotation.flatten(matrix)).to eq([[1, 2, 3, 4, 8, 12, 11, 10, 9, 5], [6, 7]])
+      expect(MatrixRotation.flatten(matrix)).to eq([[1, 2, 3, 4, 10, 16, 22, 28, 27, 26, 25, 19, 13, 7], [8, 9, 15, 21, 20, 14]])
     end
 
     it "handles a matrix with an odd number of columns" do
-      matrix = [[1, 2, 3], [4, 5, 6]]
+      matrix = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]]
 
-      expect(MatrixRotation.flatten(matrix)).to eq([[1, 2, 3, 6, 5, 4]])
+      expect(MatrixRotation.flatten(matrix)).to eq([[1, 2, 3, 4, 5, 10, 15, 20, 19, 18, 17, 16, 11, 6], [7, 8, 9, 14, 13, 12]])
     end
   end
 
@@ -69,6 +69,18 @@ RSpec.describe MatrixRotation do
       flat_matrix = [[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5], [6, 7, 11, 10]]
 
       expect(subject.unflatten(flat_matrix, 4, 4)).to eq([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])
+    end
+
+    it "handles a matrix with an odd number of rows" do
+      flat_matrix = [[1, 2, 3, 4, 10, 16, 22, 28, 27, 26, 25, 19, 13, 7], [8, 9, 15, 21, 20, 14]]
+
+      expect(MatrixRotation.unflatten(flat_matrix, 4, 5)).to eq([[1, 2, 3, 4], [7, 8, 9, 10], [13, 14, 15, 16], [19, 20, 21, 22], [25, 26, 27, 28]])
+    end
+
+    it "handles a matrix with an odd number of columns" do
+      flat_matrix = [[1, 2, 3, 4, 5, 10, 15, 20, 19, 18, 17, 16, 11, 6], [7, 8, 9, 14, 13, 12]]
+
+      expect(MatrixRotation.unflatten(flat_matrix, 5, 4)).to eq([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]])
     end
   end
 

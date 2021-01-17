@@ -16,7 +16,7 @@ module MatrixRotation
   def flatten(matrix)
     boxes = []
 
-    while matrix.any?
+    while matrix.any? && matrix.first != []
       top_row = matrix.shift
       bottom_row = matrix.pop&.reverse || []
       right_column = matrix.map { |row| row.pop }
@@ -40,7 +40,7 @@ module MatrixRotation
     if (flat_matrix.length > 1)
       matrix = unflatten(flat_matrix[1..flat_matrix.length - 1], n_cols - 2, n_rows - 2)
     else
-      matrix = []
+      matrix = prepare_empty_matrix(n_cols, n_rows)
     end
 
     layer = flat_matrix.first
@@ -59,6 +59,15 @@ module MatrixRotation
   end
 
   private
+
+  def prepare_empty_matrix(n_cols, n_rows)
+    matrix = []
+    if (n_cols == 2)
+      (n_rows - 2).times { matrix.append([]) }
+    end
+
+    matrix
+  end
 
   def right_inner_col_from_layer(layer, n_cols, n_rows)
     layer[n_cols, n_rows - 2]
