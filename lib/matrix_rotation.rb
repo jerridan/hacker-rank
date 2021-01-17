@@ -3,7 +3,7 @@ def matrixRotation(matrix, r)
   n_rows = matrix.length
   n_cols = matrix.first.length
 
-  flat_matrix = MatrixRotation.flatten(matrix.clone)
+  flat_matrix = MatrixRotation.flatten(matrix)
   r.times { MatrixRotation.rotate(flat_matrix) }
   matrix = MatrixRotation.unflatten(flat_matrix, n_cols, n_rows)
 
