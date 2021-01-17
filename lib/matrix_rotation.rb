@@ -1,14 +1,13 @@
 # Function definition - do not change
 def matrixRotation(matrix, r)
-  boxes = organizeIntoBoxes(matrix)
-
-  flat_matrix = MatrixRotation.flatten(matrix.clone)
   n_rows = matrix.length
   n_cols = matrix.first.length
 
-  r.times { boxes.each(&method(:rotate)) }
+  flat_matrix = MatrixRotation.flatten(matrix.clone)
+  r.times { MatrixRotation.rotate(flat_matrix) }
+  matrix = MatrixRotation.unflatten(flat_matrix, n_cols, n_rows)
 
-  print(boxes)
+  puts MatrixRotation.to_string(matrix)
 end
 
 module MatrixRotation
@@ -66,7 +65,7 @@ module MatrixRotation
   end
 
   def left_inner_col_from_layer(layer, n_rows)
-    p layer[layer.length - n_rows + 2, n_rows - 2].reverse
+    layer[layer.length - n_rows + 2, n_rows - 2].reverse
   end
 
   def top_row_from_layer(layer, n_cols)

@@ -1,24 +1,31 @@
 require_relative "../lib/matrix_rotation"
 
-RSpec.describe MatrixRotation do
-  xdescribe ".matrixRotation" do
-    it "prints the matrix if r=0" do
-      matrix = [[1, 2], [3, 4]]
-      r = 0
+RSpec.describe "solution" do
+  it "prints the matrix if r=0" do
+    matrix = [[1, 2], [3, 4]]
+    r = 0
 
-      expect { subject.matrixRotation(matrix, r) }.to output("1 2\n3 4\n").to_stdout
-    end
-
-    it "rotates a single layer matrix" do
-      matrix = [[1, 2], [3, 4]]
-      r = 1
-
-      expect { subject.matrixRotation(matrix, r) }.to output("2 4\n1 3\n").to_stdout
-    end
+    expect { matrixRotation(matrix, r) }.to output("1 2\n3 4\n").to_stdout
   end
 
+  it "rotates a single layer matrix" do
+    matrix = [[1, 2], [3, 4]]
+    r = 1
+
+    expect { matrixRotation(matrix, r) }.to output("2 4\n1 3\n").to_stdout
+  end
+
+  it "rotates a double layer matrix" do
+    matrix = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]]
+    r = 2
+
+    expect { matrixRotation(matrix, r) }.to output("3 4 5 10 15\n2 9 14 13 20\n1 8 7 12 19\n6 11 16 17 18\n").to_stdout
+  end
+end
+
+RSpec.describe MatrixRotation do
   describe ".flatten" do
-    it "creates a double array where each 'layer' of a matrix is layed out counter-clockwise" do
+    it "creates a double array where each 'layer' of a matrix is laid out counter-clockwise" do
       matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
 
       expect(MatrixRotation.flatten(matrix)).to eq([[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5], [6, 7, 11, 10]])
