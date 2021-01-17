@@ -1,6 +1,4 @@
-#!/bin/ruby
-
-# Function definition may not change
+# Function definition - do not change
 def matrixRotation(matrix, r)
   boxes = organizeIntoBoxes(matrix)
 
@@ -40,7 +38,6 @@ module MatrixRotation
   end
 
   def unflatten(flat_matrix, n_cols, n_rows)
-
     if (flat_matrix.length > 1)
       matrix = unflatten(flat_matrix[1..flat_matrix.length - 1], n_cols - 2, n_rows - 2)
     else

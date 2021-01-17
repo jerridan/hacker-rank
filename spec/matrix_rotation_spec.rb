@@ -1,58 +1,5 @@
 require_relative "../lib/matrix_rotation"
 
-# module MatrixRotation
-#   RSpec.describe Matrix do
-#     let(:r) { 1 }
-#
-#     describe "#new" do
-#       it "creates a double array where each 'layer' of a matrix is layed out counter-clockwise" do
-#         matrix_array = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
-#         matrix = Matrix.new(matrix_array, r)
-#
-#         expect(matrix.flatten).to eq([[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5], [6, 7, 11, 10]])
-#       end
-#
-#       it "handles a single-layer matrix" do
-#         matrix_array = [[1, 2], [3, 4]]
-#         matrix = Matrix.new(matrix_array, r)
-#
-#         expect(matrix.flatten).to eq([[1, 2, 4, 3]])
-#       end
-#
-#       it "handles a matrix with an odd number of rows" do
-#         matrix_array = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
-#         matrix = Matrix.new(matrix_array, r)
-#
-#         expect(matrix.flatten).to eq([[1, 2, 3, 4, 8, 12, 11, 10, 9, 5], [6, 7]])
-#       end
-#
-#       it "handles a matrix with an odd number of columns" do
-#         matrix_array = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
-#         matrix = Matrix.new(matrix_array, r)
-#
-#         expect(matrix.flatten).to eq([[1, 2, 3, 6, 9, 12, 11, 10, 7, 4], [5, 8]])
-#       end
-#     end
-#
-#     describe "#unflatten" do
-#       xit "un-flattens a single-layer matrix" do
-#         flat_matrix = Matrix.new([[1, 2, 4, 3]], r).flatten
-#
-#         expect(flat_matrix.unflatten).to eq([[1, 2], [3, 4]])
-#       end
-#
-#       xit "converts an array with two boxes to a matrix" do
-#         boxes = [[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5], [6, 7, 11, 10]]
-#
-#         expect(subject.toMatrix(boxes)).to eq([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])
-#       end
-#     end
-#
-#     describe "#rotate" do
-#     end
-#   end
-# end
-
 RSpec.describe MatrixRotation do
   xdescribe ".matrixRotation" do
     it "prints the matrix if r=0" do
