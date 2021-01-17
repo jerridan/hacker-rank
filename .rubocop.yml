@@ -1,0 +1,233 @@
+require:
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "Gemfile"
+    - "spec/spec_helper.rb"
+
+# Trailing commas
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+# Auto-correct
+Layout/DefEndAlignment:
+  Enabled: true
+  AutoCorrect: true
+Layout/EndAlignment:
+  Enabled: true
+  AutoCorrect: true
+Layout/LineLength:
+  Max: 120
+  AutoCorrect: true
+  Exclude:
+    - "spec/**/*"
+
+# Line breaks
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: true
+
+# Identation
+Layout/AccessModifierIndentation:
+  Enabled: true
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedColonStyle: key
+  EnforcedLastArgumentHashStyle: always_inspect
+Layout/ParameterAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+Layout/BlockAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: start_of_block
+Layout/CaseIndentation:
+  Enabled: true
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+Layout/FirstArgumentIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+Layout/FirstArrayElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+Layout/FirstParameterIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+Layout/IndentationConsistency:
+  Enabled: true
+Layout/IndentationWidth:
+  Enabled: true
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+Layout/MultilineOperationIndentation:
+  Enabled: true
+
+# Miscellaneous Layout
+Layout/DotPosition:
+  EnforcedStyle: leading
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+Layout/EmptyLines:
+  Enabled: true
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+Layout/ExtraSpacing:
+  Enabled: true
+  AllowForAlignment: false
+Layout/HeredocArgumentClosingParenthesis:
+  Enabled: true
+Layout/LeadingCommentSpace:
+  Enabled: true
+Layout/MultilineBlockLayout:
+  Enabled: true
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+Layout/SpaceAfterComma:
+  Enabled: true
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+Layout/SpaceAroundOperators:
+  Enabled: true
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+  EnforcedStyle: space
+Layout/SpaceInLambdaLiteral:
+  Enabled: true
+  SupportedStyles:
+    - require_no_space
+Layout/TrailingEmptyLines:
+  Enabled: true
+  SupportedStyles:
+    - final_newline
+Layout/TrailingWhitespace:
+  Enabled: true
+
+# Lint
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+# Metrics
+Metrics/AbcSize:
+  Max: 50
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Max: 20
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Max: 20
+Metrics/ModuleLength:
+  Exclude:
+    - "spec/**/*"
+
+# Miscellaneous Style
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: never
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Disable annoyances
+Bundler/OrderedGems:
+  Enabled: false
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+Naming/MethodParameterName:
+  Enabled: false
+Naming/PredicateName:
+  Enabled: false
+RSpec/ContextWording:
+  Enabled: false
+RSpec/DescribedClass:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FormatStringToken:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/MutableConstant:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: false
+
+# Class structure
+Layout/ClassStructure:
+  Enabled: true
+  AutoCorrect: true
+  ExpectedOrder:
+    - constants
+    - attribute
+    - attr_reader
+    - attr_writer
+    - attr_accessor
+    - squish_attributes
+    - delegate
+    - has_one
+    - has_many
+    - belongs_to
+    - has_and_belongs_to_many
+    - validate
+    - validates
+    - validates_presence_of
+    - validates_uniqueness_of
+    - before_validation
+    - after_validation
+    - before_save
+    - around_save
+    - before_create
+    - around_create
+    - after_create
+    - before_update
+    - around_update
+    - after_update
+    - before_destroy
+    - around_destroy
+    - after_destroy
+    - after_save
+    - after_commit
+    - after_rollback
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
