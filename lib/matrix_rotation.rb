@@ -14,7 +14,7 @@ module MatrixRotation
   extend self
 
   def flatten(matrix)
-    boxes = []
+    layers = []
 
     while matrix.any? && matrix.first != []
       top_row = matrix.shift
@@ -22,11 +22,11 @@ module MatrixRotation
       right_column = matrix.map { |row| row.pop }
       left_column = matrix.map { |row| row.shift }.reverse
 
-      box = top_row.concat(right_column).concat(bottom_row).concat(left_column)
-      boxes.push(box)
+      layer = top_row.concat(right_column).concat(bottom_row).concat(left_column)
+      layers.push(layer)
     end
 
-    boxes
+    layers
   end
 
   def rotate(flat_matrix)
