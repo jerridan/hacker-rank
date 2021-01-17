@@ -55,6 +55,10 @@ module MatrixRotation
     matrix
   end
 
+  def to_string(matrix)
+    matrix.map { |row| row.join(" ") }.join("\n")
+  end
+
   private
 
   def right_inner_col_from_layer(layer, n_cols, n_rows)

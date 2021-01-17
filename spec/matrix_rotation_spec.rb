@@ -64,4 +64,12 @@ RSpec.describe MatrixRotation do
       expect(subject.unflatten(flat_matrix, 4, 4)).to eq([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])
     end
   end
+
+  describe ".to_string" do
+    it "converts a matrix to a string" do
+      matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+
+      expect(MatrixRotation.to_string(matrix)).to eq("1 2 3\n4 5 6\n7 8 9\n10 11 12")
+    end
+  end
 end
